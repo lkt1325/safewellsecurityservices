@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Safewell Security Services — professional, licensed and bonded security solutions: manned guarding, CCTV, VIP protection, event and industrial security." />
+  <title>Safewell Security Services — Your Safety, Our Priority</title>
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Animated background -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#home" class="brand" aria-label="Safewell Security Services home">
+        <img src="images/logo.png" alt="Safewell shield logo" class="brand-logo" />
+        <span class="brand-text">
+          <strong>SAFEWELL</strong>
+          <small>SECURITY SERVICES</small>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#why" class="nav-link">Why Us</a>
+        <a href="#process" class="nav-link">Process</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <a href="#contact" class="btn btn-primary btn-cta">Get a Quote</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-bg" style="background-image:url('images/hero-bg.jpg')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grid"></div>
+
+    <div class="container hero-content">
+      <div class="badge reveal">
+        <span class="dot"></span> LICENSED · BONDED · 24/7
+      </div>
+      <h1 class="reveal">
+        YOUR SAFETY,<br />
+        <span class="text-yellow">OUR PRIORITY.</span>
+      </h1>
+      <p class="hero-sub reveal">
+        Professional security solutions you can trust. Trained personnel, advanced
+        surveillance, and tactical response — built for the moments that matter.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#contact" class="btn btn-primary">Get a Quote →</a>
+        <a href="#contact" class="btn btn-ghost">Contact Us</a>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+      <span>SCROLL</span>
+      <div class="mouse"><div class="wheel"></div></div>
+    </a>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section about">
+    <div class="container about-grid">
+      <div class="about-image reveal-left">
+        <div class="image-frame">
+          <img src="images/about.jpg" alt="Safewell security team in uniform" loading="lazy" />
+        </div>
+        <div class="glow-ring"></div>
+      </div>
+      <div class="about-text">
+        <p class="eyebrow reveal">— ABOUT US</p>
+        <h2 class="reveal">WATCHFUL, FRIENDLY, <span class="text-yellow">ALWAYS THERE.</span></h2>
+        <p class="reveal">
+          Safewell Security Services provides trained, uniformed security guards
+          and watchmen for homes, offices, shops, and events. We focus on a calm,
+          respectful presence — the kind of quiet, dependable team you're glad to
+          see at the gate.
+        </p>
+
+        <div class="about-cards">
+          <div class="mini-card reveal"><div class="mini-icon">🛡️</div><h4>TRUST</h4><p>Friendly, licensed guards you can rely on every day.</p></div>
+          <div class="mini-card reveal"><div class="mini-icon">🏅</div><h4>EXPERIENCE</h4><p>More than ten years of looking after homes, offices, and events.</p></div>
+          <div class="mini-card reveal"><div class="mini-icon">👥</div><h4>CARE</h4><p>Polite, attentive watchmen who treat your space like their own.</p></div>
+        </div>
+
+        <a href="#services" class="btn btn-primary reveal" style="margin-top:2rem">Learn More About Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section services">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal">— WHAT WE DO</p>
+        <h2 class="reveal">OUR <span class="text-yellow">SERVICES</span></h2>
+        <p class="section-sub reveal">A full spectrum of physical and electronic security capabilities — engineered around your risk profile.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="svc-icon">🛡️</div>
+          <h3>Manned Guarding</h3>
+          <p>Uniformed, vetted guards covering entrances, patrols, and access control.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="svc-icon">🎟️</div>
+          <h3>Event Security</h3>
+          <p>Crowd control, VIP zones, and rapid coordination for events of every size.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="svc-icon">📷</div>
+          <h3>CCTV Surveillance</h3>
+          <p>Modern camera systems with monitored feeds and retention you control.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="svc-icon">🕴️</div>
+          <h3>VIP Protection</h3>
+          <p>Discreet close-protection officers trained in defensive driving and PPO.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="svc-icon">🏭</div>
+          <h3>Industrial Security</h3>
+          <p>Site security, gate management, and round-the-clock perimeter patrols.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="svc-icon">🏠</div>
+          <h3>Residential Security</h3>
+          <p>Watchmen, society patrols, and visitor management for housing complexes.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section id="why" class="section why">
+    <div class="container why-grid">
+      <div>
+        <p class="eyebrow reveal">— WHY CHOOSE US</p>
+        <h2 class="reveal">BUILT ON <span class="text-yellow">DISCIPLINE & DETAIL.</span></h2>
+        <p class="reveal">From the gatehouse to the control room, every Safewell deployment runs on standard operating procedures, daily briefings, and supervisor checks.</p>
+        <ul class="check-list">
+          <li class="reveal">⚡ 24/7 support and rapid response</li>
+          <li class="reveal">🎓 Certified, background-verified team</li>
+          <li class="reveal">🛰️ Advanced security & monitoring tech</li>
+          <li class="reveal">📋 Tailored SOPs for every site</li>
+        </ul>
+      </div>
+
+      <div class="counters">
+        <div class="counter-card reveal"><div class="num" data-count="450">0</div><p>Happy Clients</p></div>
+        <div class="counter-card reveal"><div class="num" data-count="1200">0</div><p>Trained Guards</p></div>
+        <div class="counter-card reveal"><div class="num" data-count="12">0</div><p>Years Experience</p></div>
+        <div class="counter-card reveal"><div class="num" data-count="98">0</div><p>% Retention</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="section process">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal">— HOW WE WORK</p>
+        <h2 class="reveal">OUR <span class="text-yellow">PROCESS</span></h2>
+      </div>
+      <div class="process-grid">
+        <div class="step reveal"><span class="step-num">01</span><h4>Consultation</h4><p>We listen first — understanding your site, risks, and operations.</p></div>
+        <div class="step reveal"><span class="step-num">02</span><h4>Risk Assessment</h4><p>A walk-through and threat profile tailored to your environment.</p></div>
+        <div class="step reveal"><span class="step-num">03</span><h4>Deployment</h4><p>Certified guards and tech deployed with documented SOPs.</p></div>
+        <div class="step reveal"><span class="step-num">04</span><h4>Monitoring</h4><p>Daily supervision, reporting, and continuous improvement.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY / SLIDER -->
+  <section id="gallery" class="section gallery">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal">— IN THE FIELD</p>
+        <h2 class="reveal">OUR <span class="text-yellow">OPERATIONS</span></h2>
+        <p class="section-sub reveal">Real moments from our guards on duty across homes, offices, and worksites.</p>
+      </div>
+
+      <div class="slider" id="slider">
+        <div class="slides" id="slides">
+          <div class="slide"><div class="slide-blur" style="background-image:url('images/slide-1.jpg')"></div><img src="images/slide-1.jpg" alt="Two guards posted at facility entrance" /></div>
+          <div class="slide"><div class="slide-blur" style="background-image:url('images/slide-2.jpg')"></div><img src="images/slide-2.jpg" alt="CCTV control room operator" /></div>
+          <div class="slide"><div class="slide-blur" style="background-image:url('images/slide-3.jpg')"></div><img src="images/slide-3.jpg" alt="VIP close protection officer" /></div>
+          <div class="slide"><div class="slide-blur" style="background-image:url('images/slide-4.jpg')"></div><img src="images/slide-4.jpg" alt="Event security managing entrance" /></div>
+          <div class="slide"><div class="slide-blur" style="background-image:url('images/slide-5.jpg')"></div><img src="images/slide-5.jpg" alt="Industrial site security officer" /></div>
+        </div>
+        <button class="slider-arrow prev" id="prevBtn" aria-label="Previous slide">‹</button>
+        <button class="slider-arrow next" id="nextBtn" aria-label="Next slide">›</button>
+        <div class="slider-dots" id="dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal">— TESTIMONIALS</p>
+        <h2 class="reveal">WHAT OUR <span class="text-yellow">CLIENTS SAY</span></h2>
+        <p class="section-sub reveal">Trusted by operations leaders, event producers, and private clients across industries.</p>
+      </div>
+
+      <div class="testi-track" id="testiTrack">
+        <div class="testi-card">
+          <p>"Safewell has transformed how our facility runs at night. Calm, professional, and always proactive."</p>
+          <div class="testi-author"><strong>— Anjali R.</strong><span>Facility Manager</span></div>
+        </div>
+        <div class="testi-card">
+          <p>"From the first walkthrough to deployment, it felt like a real partnership. Their guards are sharp and respectful."</p>
+          <div class="testi-author"><strong>— Marcus L.</strong><span>Event Producer</span></div>
+        </div>
+        <div class="testi-card">
+          <p>"We finally have a security team we don't have to babysit. Reports come in daily, no surprises."</p>
+          <div class="testi-author"><strong>— Priya S.</strong><span>Society Chairperson</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-band">
+    <div class="container cta-inner reveal">
+      <div>
+        <p class="eyebrow">READY WHEN YOU ARE</p>
+        <h2>PROFESSIONAL SECURITY SOLUTIONS FOR <span class="text-yellow">EVERY NEED</span></h2>
+        <p>Talk to a security strategist. Get a tailored plan and quote within 24 hours.</p>
+      </div>
+      <a href="#contact" class="btn btn-primary btn-large">Get a Quote →</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <p class="eyebrow reveal">— CONTACT</p>
+        <h2 class="reveal">LET'S TALK <span class="text-yellow">SECURITY.</span></h2>
+        <p class="reveal">Reach our 24/7 operations desk — we usually respond within an hour.</p>
+        <ul class="contact-list">
+          <li class="reveal">📞 <span>+1 (555) 010-2025</span></li>
+          <li class="reveal">✉️ <span>ops@safewell-security.com</span></li>
+          <li class="reveal">📍 <span>221 Sentinel Avenue, Suite 400</span></li>
+        </ul>
+        <div class="map reveal">
+          <iframe
+            title="Safewell location"
+            src="https://www.google.com/maps?q=Times+Square,New+York&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <h3>Get a Free Quote</h3>
+        <div class="row">
+          <label>Name <input type="text" name="name" required placeholder="Your full name" /></label>
+          <label>Email <input type="email" name="email" required placeholder="you@company.com" /></label>
+        </div>
+        <div class="row">
+          <label>Phone <input type="tel" name="phone" placeholder="+1 555 ..." /></label>
+          <label>Service
+            <select name="service">
+              <option>Manned Guarding</option>
+              <option>Event Security</option>
+              <option>CCTV Surveillance</option>
+              <option>VIP Protection</option>
+              <option>Industrial Security</option>
+              <option>Residential Security</option>
+            </select>
+          </label>
+        </div>
+        <label>Message <textarea name="message" rows="5" placeholder="Tell us about your site and requirements..."></textarea></label>
+        <button type="submit" class="btn btn-primary btn-large">Send Message →</button>
+        <p class="form-status" id="formStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#home" class="brand">
+          <img src="images/logo.png" alt="Safewell logo" class="brand-logo" />
+          <span class="brand-text"><strong>SAFEWELL</strong><small>SECURITY SERVICES</small></span>
+        </a>
+        <p class="muted" style="margin-top:1rem">Licensed · Bonded · Insured. Watchful, friendly, always there.</p>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <a href="#services">Manned Guarding</a>
+        <a href="#services">CCTV Surveillance</a>
+        <a href="#services">VIP Protection</a>
+        <a href="#services">Event Security</a>
+      </div>
+      <div>
+        <h5>Follow</h5>
+        <div class="socials">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+    <div class="container foot-bottom">
+      <p>© <span id="year"></span> Safewell Security Services. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
