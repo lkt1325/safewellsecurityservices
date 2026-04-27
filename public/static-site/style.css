@@ -196,10 +196,12 @@ h4 { font-size: 1.1rem; letter-spacing: .08em; }
   to { transform: rotate(360deg); }
 }
 @media (max-width: 900px) {
-  .hero-layout { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
-  .hero-text { margin: 0 auto; }
+  .hero-layout { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+  .hero-text { margin: 0 auto; order: 1; }
   .hero-text .badge, .hero-actions { justify-content: center; }
-  .hero-logo-wrap { min-height: 280px; order: -1; }
+  .hero-logo-wrap { min-height: 360px; order: 2; }
+  .hero-logo { width: clamp(280px, 70vw, 420px); }
+  .hero-logo-glow { width: clamp(360px, 85vw, 520px); height: clamp(360px, 85vw, 520px); }
 }
 .badge {
   display: inline-flex; align-items: center; gap: .5rem;
