@@ -158,6 +158,86 @@ document.addEventListener('DOMContentLoaded', () => {
   goTo(0);
   startAuto();
 
+  // ---------- Testimonials carousel ----------
+  (function () {
+    const root = document.getElementById('testiCarousel');
+    if (!root) return;
+    const track = document.getElementById('testiTrack');
+    const cards = track.querySelectorAll('.testi-card');
+    const prev = document.getElementById('testiPrev');
+    const next = document.getElementById('testiNext');
+    const dotsWrap = document.getElementById('testiDots');
+    const TOTAL = cards.length;
+    let perView = 3, pages = 1, idx = 0, timer = null, paused = false;
+
+    function calcPerView() {
+      const w = window.innerWidth;
+      if (w <= 700) return 1;
+      if (w <= 1024) return 2;
+      return 3;
+    }
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      for (let i = 0; i < pages; i++) {
+        const b = document.createElement('button');
+        b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        b.addEventListener('click', () => goTo(i, true));
+        dotsWrap.appendChild(b);
+      }
+    }
+    function setActiveDot() {
+      dotsWrap.querySelectorAll('button').forEach((d, i) =>
+        d.classList.toggle('active', i === idx)
+      );
+    }
+    function update() {
+      const newPerView = calcPerView();
+      if (newPerView !== perView) {
+        perView = newPerView;
+        pages = Math.max(1, TOTAL - perView + 1);
+        idx = Math.min(idx, pages - 1);
+        buildDots();
+      }
+      const cardW = cards[0].getBoundingClientRect().width;
+      const gap = parseFloat(getComputedStyle(track).gap) || 24;
+      track.style.transform = `translateX(-${idx * (cardW + gap)}px)`;
+      setActiveDot();
+    }
+    function goTo(n, manual) {
+      idx = (n + pages) % pages;
+      update();
+      if (manual) restart();
+    }
+    function start() {
+      stop();
+      if (paused) return;
+      timer = setInterval(() => goTo(idx + 1), 4500);
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function restart() { start(); }
+
+    prev.addEventListener('click', () => goTo(idx - 1, true));
+    next.addEventListener('click', () => goTo(idx + 1, true));
+    root.addEventListener('mouseenter', () => { paused = true; stop(); });
+    root.addEventListener('mouseleave', () => { paused = false; start(); });
+    window.addEventListener('resize', update);
+
+    // Touch swipe
+    let sx = 0;
+    track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; stop(); }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 40) goTo(idx + (dx < 0 ? 1 : -1), true);
+      else start();
+    });
+
+    perView = calcPerView();
+    pages = Math.max(1, TOTAL - perView + 1);
+    buildDots();
+    update();
+    start();
+  })();
+
   // ---------- Contact form ----------
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
