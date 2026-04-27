@@ -81,13 +81,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ---------- Slider ----------
+  // ---------- Full-width auto Slider ----------
+  const sliderEl = document.getElementById('slider');
   const slidesEl = document.getElementById('slides');
   const slides = slidesEl.querySelectorAll('.slide');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   const dotsWrap = document.getElementById('dots');
-  let idx = 0, autoTimer;
+  const AUTO_MS = 3500;
+  let idx = 0, autoTimer = null, paused = false;
 
   slides.forEach((_, i) => {
     const b = document.createElement('button');
@@ -104,23 +106,57 @@ document.addEventListener('DOMContentLoaded', () => {
     slides.forEach((s, i) => s.classList.toggle('active', i === idx));
     if (manual) restartAuto();
   }
-  function restartAuto() {
-    clearInterval(autoTimer);
-    autoTimer = setInterval(() => goTo(idx + 1), 4000);
+  function startAuto() {
+    stopAuto();
+    if (paused) return;
+    autoTimer = setInterval(() => goTo(idx + 1), AUTO_MS);
   }
+  function stopAuto() {
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  }
+  function restartAuto() { startAuto(); }
+
   prevBtn.addEventListener('click', () => goTo(idx - 1, true));
   nextBtn.addEventListener('click', () => goTo(idx + 1, true));
 
+  // Pause on hover
+  sliderEl.addEventListener('mouseenter', () => { paused = true; stopAuto(); });
+  sliderEl.addEventListener('mouseleave', () => { paused = false; startAuto(); });
+
+  // Pause when tab hidden
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAuto(); else startAuto();
+  });
+
   // Touch swipe
-  let startX = 0;
-  slidesEl.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive: true });
+  let startX = 0, startY = 0, swiping = false;
+  slidesEl.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    swiping = true;
+    stopAuto();
+  }, { passive: true });
   slidesEl.addEventListener('touchend', e => {
+    if (!swiping) return;
+    swiping = false;
     const dx = e.changedTouches[0].clientX - startX;
-    if (Math.abs(dx) > 40) goTo(idx + (dx < 0 ? 1 : -1), true);
+    const dy = e.changedTouches[0].clientY - startY;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      goTo(idx + (dx < 0 ? 1 : -1), true);
+    } else {
+      startAuto();
+    }
+  });
+
+  // Keyboard support when slider is focused/in view
+  sliderEl.setAttribute('tabindex', '0');
+  sliderEl.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') goTo(idx - 1, true);
+    if (e.key === 'ArrowRight') goTo(idx + 1, true);
   });
 
   goTo(0);
-  restartAuto();
+  startAuto();
 
   // ---------- Contact form ----------
   const form = document.getElementById('contactForm');
