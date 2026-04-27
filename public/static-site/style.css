@@ -577,3 +577,84 @@ h4 { font-size: 1.1rem; letter-spacing: .08em; }
   .cta-inner { padding: 2rem; text-align: center; flex-direction: column; }
   .footer-grid { grid-template-columns: 1fr; }
 }
+
+/* ===== Floating Call Button ===== */
+.float-call{
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #FFD700;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  box-shadow: 0 8px 24px rgba(255,215,0,0.45), 0 4px 10px rgba(0,0,0,0.35);
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  animation: floatCallIn 0.6s ease-out 0.4s forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.float-call:hover{
+  transform: translateY(0) scale(1.1);
+  box-shadow: 0 12px 32px rgba(255,215,0,0.7), 0 0 24px rgba(255,215,0,0.5);
+  background: #ffdf33;
+}
+.float-call:active{ transform: translateY(0) scale(0.95); }
+.float-call-icon{ width: 28px; height: 28px; position: relative; z-index: 2; }
+.float-call-pulse{
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #FFD700;
+  z-index: 1;
+  animation: floatCallPulse 2s ease-out infinite;
+}
+.float-call-tooltip{
+  position: absolute;
+  right: 74px;
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  background: #000;
+  color: #FFD700;
+  border: 1px solid rgba(255,215,0,0.4);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.float-call-tooltip::after{
+  content: "";
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 8px; height: 8px;
+  background: #000;
+  border-right: 1px solid rgba(255,215,0,0.4);
+  border-top: 1px solid rgba(255,215,0,0.4);
+}
+.float-call:hover .float-call-tooltip{
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+@keyframes floatCallPulse{
+  0%   { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+@keyframes floatCallIn{
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (max-width: 700px){
+  .float-call{ width: 56px; height: 56px; right: 18px; bottom: 18px; }
+  .float-call-icon{ width: 24px; height: 24px; }
+  .float-call-tooltip{ display: none; }
+}
